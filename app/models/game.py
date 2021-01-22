@@ -10,6 +10,9 @@ class Game:
             "Spock": ["Scissors", "Rock"]
         }
 
+        # Initialise game as classic unextended game
+        self.classic_answers = ["Rock", "Paper", "Scissors"]
+        self.acceptable_answers = self.classic_answers
 
     def play(self, player1, player2):
 
@@ -35,3 +38,9 @@ class Game:
         else:
             player2.increase_score()
             return player2
+
+    def extended_game(self):
+        self.acceptable_answers = list(self.beats.keys())
+
+    def classic_game(self):
+        self.acceptable_answers = self.classic_answers

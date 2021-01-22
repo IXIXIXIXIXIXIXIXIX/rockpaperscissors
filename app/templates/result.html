@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if result %}
+        <h1>{{ result.name }} wins this round!</h1>
+    {% else %}
+        <h1>No winner this round!</h1>
+    <p>{{ player1.name }} chose {{ p1_choice }}</p>
+    <p>{{ player2.name }} chose {{p2_choice }}</p>
+    {% endif %}
+    <div class="result_button_container">
+        <form action="/new_round">
+            <input type="submit" value="Play Again">
+        </form>
+        <form action="/end">
+            <input type="submit" value="End Game">
+        </form>
+    </div>
+{% endblock %}

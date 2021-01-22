@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="player_form_container">
+        <form action="/register_player" method="post">
+            <label for="player_name">Name</label>
+            <input type="text" name="name" id="name" required>
+            {% if player_one %}
+                <label for="classic">Classic Rock, Paper, Scissors</label>
+                <input type="radio" name="game_type" id="classic" value="classic" checked="checked">
+                <label for="extended">Extended Rock, Paper, Scissors, Lizard, Spock</label>
+                <input type="radio" name="game_type" id="extended" value="extended">
+                <br>
+                <label for="one">Versus Computer</label>
+                <input type="radio" name="num_players" id="one" value="one">
+                <label for="two">Versus Another Human</label>
+                <input type="radio" name="num_players" id="two" value="two" checked="checked">
+            {% else %}
+                <input type="hidden", name="num_players", value="one">
+            {% endif %}
+                <input type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}

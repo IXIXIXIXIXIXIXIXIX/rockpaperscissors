@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="play_container">
+    <div class="player_box">
+        {{ player1.name }}
+        <p>
+            Score: {{ player1.score }}
+        </p>
+        {% if active_player == "player1" %}
+            <form action="/submit" method="post">
+                <input type="hidden" name="player" value="player1">
+                <label for="p1_choice">Make Your Choice:</label>
+                <select name="p1_choice" id="p1_choice" required>
+                    {% for answer in answers %}
+                        <option value="{{ answer }}">{{ answer }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="GO!">
+            </form>
+        {% endif %}
+
+    </div>
+    <div class="rules_box"></div>
+    <div class="player_box">
+
+    </div>
+    <div class="rules_panel">
+
+    </div>
+    <div class="player_box">
+        {{ player2.name }}
+        <p>
+            Score: {{ player2.score }}
+        </p>
+        {% if active_player == "player2" %}
+            <form action="/submit" method="post">
+                <input type="hidden" name="player" value="player2">
+                <label for="p2_choice">Make Your Choice:</label>
+                <select name="p2_choice" id="p2_choice" required>
+                    {% for answer in answers %}
+                        <option value="{{ answer }}">{{ answer }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="GO!">
+            </form>
+        {% endif %}
+
+    </div>
+</div>
+{{ player1.name }}
+<br>
+{{ player2.name }}
+{% endblock %}

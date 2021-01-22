@@ -1,6 +1,6 @@
 import unittest
 from app.models.game import Game 
-from app.models.player import Player
+from app.models.player import Player, Robot
 
 class TestGame(unittest.TestCase):
 
@@ -120,3 +120,25 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.player1, self.game.play(self.player1, self.player2))
         self.assertEqual(1, self.player1.score)
         self.assertEqual(0, self.player2.score)
+
+    
+    # Test acceptable answers and extensibility of game
+    def test_unaltered_game_answers(self):
+        self.assertEqual(3, len(self.game.acceptable_answers))
+
+    def test_extended_game_answers(self):
+        self.game.extended_game()
+        self.assertEqual(5, len(self.game.acceptable_answers))
+
+    def test_returned_to_classic_game_answers(self):
+        self.game.extended_game()
+        self.assertEqual(5, len(self.game.acceptable_answers))
+        self.game.classic_game()
+        self.assertEqual(3, len(self.game.acceptable_answers))
+
+    # This test should be skipped unless robot.choose() is fixed to "Rock"
+    def test_robot_win(self):
+        robot = Robot("computer", self.game.acceptable_answers)
+        robot.choose()
+        self.player1.choose("Scissors")
+        self.assertEqual(robot, self.game.play(robot, self.player1))
