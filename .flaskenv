@@ -1,0 +1,2 @@
+FLASK_APP=rockpaperscissors.py
+FLASK_ENV=development
