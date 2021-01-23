@@ -3,6 +3,8 @@
 {% block content %}
     {% if result %}
         <h1>{{ result.name }} wins this round!</h1>
+        <p>{{ player1.name }} chose {{ p1_choice }}</p>
+        <p>{{ player2.name }} chose {{p2_choice }}</p>
     {% else %}
         <h1>No winner this round!</h1>
     <p>{{ player1.name }} chose {{ p1_choice }}</p>
