@@ -6,7 +6,7 @@ body {
 main {
     display:flex;
     justify-content: space-around;
-    min-height: calc(100vh - 115px);
+    /* min-height: calc(100vh - 115px); */
 
 }
 
@@ -39,9 +39,11 @@ nav {
 }
 
 footer {
+    flex-shrink: 0;
     display: flex;
     justify-content: space-evenly;
     margin-top: 5px;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: lightslategrey;
@@ -74,7 +76,6 @@ footer {
     margin-top: 100px;
     width: 450px;
     box-shadow: 5px 5px lightgray;
-    
 }
 
 .player_title {
@@ -132,7 +133,6 @@ footer {
 
 .shrinkable_box {
     height: fit-content;
-    flex-shrink: 3;
     margin: 5px;
 }
 
