@@ -7,11 +7,12 @@ from app.models.robot_name_chooser import robot_name_chooser
 @app.route('/')
 def index():
 	return render_template('index.html')
-	# Change this route, obviously
 
 @app.route('/register_player')
 def register_player():
+# First time round - render form for P1 name, opponent type and game version
 
+	# Reset for new game
 	players.clear()
 	game.classic_game()
 
