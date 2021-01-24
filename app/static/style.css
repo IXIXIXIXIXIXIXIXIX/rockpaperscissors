@@ -5,7 +5,8 @@ body {
 
 main {
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    min-height: calc(100vh - 115px);
 
 }
 
@@ -40,7 +41,7 @@ nav {
 footer {
     display: flex;
     justify-content: space-evenly;
-    position: absolute;
+    margin-top: 5px;
     bottom: 0;
     width: 100%;
     background-color: lightslategrey;
@@ -131,6 +132,8 @@ footer {
 
 .shrinkable_box {
     height: fit-content;
+    flex-shrink: 3;
+    margin: 5px;
 }
 
 .result_button_container {
