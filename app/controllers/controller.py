@@ -20,16 +20,18 @@ def register_player():
 @app.route('/register_player', methods=['POST'])
 def create_player():
 
+	# Check if the user has chosen extended game
 	if len(players) == 0 and request.form['game_type'] == "extended":
 		game.extended_game()
 	
 	add_player(Player(request.form['name']))
 
+	# Create human player 2 on second time round
 	if request.form['num_players'] == "two":
 		return render_template('register_player.html', player_one=False)
 
+	# Create robot player 2 if selected
 	if len(players) < 2:
-		# create robot player
 		add_player(Robot(robot_name_chooser(), game.acceptable_answers))
 
 	
