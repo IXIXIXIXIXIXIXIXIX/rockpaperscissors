@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    hello, world
+    <div class="player_form_container shrinkable_box intro_box">
+        <div class="intro_head">Rock Paper Scissors</div>
+        <p class="intro_content">
+            Welcome to <a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" class="styled_link" target="_blank"><span class="caps">Rock Paper Scissors.</span></a>
+            To play, enter your name on the registration page and choose which version of 
+            the game that you would like to play. You have the choice of the classic 
+            gesture game where you choose from the three eponymous hand gestures, each beatable 
+            by one of the others, and capable of victory over the other. The other choice 
+            is <a href="http://www.samkass.com/theories/RPSSL.html" class="styled_link" target="_blank"><span class="caps">Rock Paper Scissors Lizard Spock.</span></a> 
+            This is an expanded version of the game in which the additional two options mean that each gesture 
+            will beat two of the others and in turn are beaten by the remaining two. The advantage 
+            of this version is that it results in fewer draws. 
+        </p>
+        <p class="intro_content">
+            Finally, choose whether you will compete against another human or the computer. </p>
+        <p class="intro_content">
+            Click the button below to begin!
+        </p>
+        <div class="result_button_container">
+            <form action="/register_player">
+                <input type="submit" value="Start Game" class="custom_btn body_btn">
+            </form>
+        </div>
+    </div>
 {% endblock %}

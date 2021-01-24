@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ res_string_1 }}</h1>
-    <p>{{ res_string_2 }} <br>
-        {{ res_string_3 }}
-    </p>
+    <div class="player_form_container shrinkable_box">
+        <h1 class="player_title">{{ res_string_1 }}</h1>
+            <div class="results_reveal">        
+                <div class="player_title">{{ res_string_2 }}</div>
+                <div class="player_title">{{ res_string_3 }}</div>
+            </div>
+        </p>
+    </div>
 {% endblock %}

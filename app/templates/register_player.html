@@ -1,24 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div id="player_form_container">
+    <div class="player_form_container">
         <form action="/register_player" method="post">
-            <label for="player_name">Name</label>
+            {% if player_one %}
+                <h3 class="player_title">Player One</h3>
+            {% else %}
+                <h3 class="player_title">Player Two</h3>
+            {% endif %}
+            <label for="player_name" class="name_label">Name:</label>
             <input type="text" name="name" id="name" required>
             {% if player_one %}
-                <label for="classic">Classic Rock, Paper, Scissors</label>
-                <input type="radio" name="game_type" id="classic" value="classic" checked="checked">
-                <label for="extended">Extended Rock, Paper, Scissors, Lizard, Spock</label>
-                <input type="radio" name="game_type" id="extended" value="extended">
+                <div class="game_group">
+                    <h4 class="form_subhead">Game Type</h4>
+                    <input type="radio" name="game_type" id="classic" value="classic" checked="checked" class="game_radio">
+                    <label for="classic">Classic Rock, Paper, Scissors</label>
+                    <br>
+                    <input type="radio" name="game_type" id="extended" value="extended" class="game_radio">
+                    <label for="extended">Extended Rock, Paper, Scissors, Lizard, Spock</label>
+                </div>
                 <br>
-                <label for="one">Versus Computer</label>
-                <input type="radio" name="num_players" id="one" value="one">
-                <label for="two">Versus Another Human</label>
-                <input type="radio" name="num_players" id="two" value="two" checked="checked">
+                <div class="game_group">
+                    <h4 class="form_subhead">Opponent</h4>
+                    <input type="radio" name="num_players" id="two" value="two" checked="checked">
+                    <label for="two">Versus Another Human</label>
+                    <input type="radio" name="num_players" id="one" value="one">
+                    <label for="one">Versus Computer</label>
+                </div>
             {% else %}
                 <input type="hidden", name="num_players", value="one">
             {% endif %}
-                <input type="submit" value="Save">
+                <div class="btn_container">
+                <input type="submit" value="Save" class="custom_btn body_btn">
+                </div>
         </form>
     </div>
 {% endblock %}

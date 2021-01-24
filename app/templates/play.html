@@ -1,54 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="play_container">
-    <div class="player_box">
-        {{ player1.name }}
-        <p>
+    <div class="player_form_container shrinkable_box">
+        <h2 class="player_title">{{ player1.name }}</h2>
+        <p class="player_title">
             Score: {{ player1.score }}
         </p>
         {% if active_player == "player1" %}
             <form action="/submit" method="post">
                 <input type="hidden" name="player" value="player1">
-                <label for="p1_choice">Make Your Choice:</label>
-                <select name="p1_choice" id="p1_choice" required>
+                <label for="p1_choice" class="name_label">Make Your Choice:</label>
+                <select name="p1_choice" id="p1_choice" class="choice" required>
                     {% for answer in answers %}
                         <option value="{{ answer }}">{{ answer }}</option>
                     {% endfor %}
                 </select>
-                <input type="submit" value="GO!">
+                <input type="submit" value="Choose" class="custom_btn body_btn">
             </form>
         {% endif %}
 
     </div>
-    <div class="rules_box"></div>
-    <div class="player_box">
-
+    <div class="player_form_container shrinkable_box rules_box">
+        {% if extended %}
+            Scissors cuts paper.<br>
+            Paper covers rock.<br>
+            Rock crushes lizard.<br>
+            Lizard poisons Spock.<br>
+            Spock smashes scissors.<br>
+            Scissors decapitates lizard.<br>
+            Lizard eats paper.<br>
+            Paper disproves Spock.<br>
+            Spock vaporizes rock.<br>
+            Rock crushes scissors.<br>
+        {% else %}
+            Rock crushes scissors.<br>
+            Scissors cuts paper.<br>
+            Paper covers rock.<br>
+        {% endif %}
     </div>
-    <div class="rules_panel">
 
-    </div>
-    <div class="player_box">
-        {{ player2.name }}
-        <p>
+
+    <div class="player_form_container shrinkable_box">
+        <h2 class="player_title">{{ player2.name }}</h2>
+        <p class="player_title">
             Score: {{ player2.score }}
         </p>
         {% if active_player == "player2" %}
             <form action="/submit" method="post">
                 <input type="hidden" name="player" value="player2">
-                <label for="p2_choice">Make Your Choice:</label>
-                <select name="p2_choice" id="p2_choice" required>
+                <label for="p2_choice" class="name_label">Make Your Choice:</label>
+                <select name="p2_choice" id="p2_choice" class="choice" required>
                     {% for answer in answers %}
                         <option value="{{ answer }}">{{ answer }}</option>
                     {% endfor %}
                 </select>
-                <input type="submit" value="GO!">
+                <input type="submit" value="Choose" class="custom_btn body_btn">
             </form>
         {% endif %}
 
     </div>
-</div>
-{{ player1.name }}
-<br>
-{{ player2.name }}
 {% endblock %}

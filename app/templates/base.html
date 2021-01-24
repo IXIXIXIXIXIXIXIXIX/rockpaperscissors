@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Spectral+SC&family=Spectral:wght@400;500&display=swap" rel="stylesheet">  
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div id="logo"><a href="/" class="styled_link"><span id="header_main">Rock Paper Scissors </span><span id="header_small">Lizard Spock</span></a></div>
+        <nav><a href="/register_player" class="custom_btn">Begin</a></nav>
+
+    </header>
+    <main>
     {% block content %}
     {% endblock %}
+    </main>
+    <footer>
+        <span><a href="https://en.wikipedia.org/wiki/Rock_(geology)" class="styled_link" target="_blank">Rock</a></span>
+        <span><a href="https://en.wikipedia.org/wiki/Paper" class="styled_link" target="_blank">Paper</a></span>
+        <span><a href="https://en.wikipedia.org/wiki/Scissors" class="styled_link" target="_blank">Scissors</a></span>
+        <span><a href="https://en.wikipedia.org/wiki/Lizard" class="styled_link" target="_blank">Lizard</a></span>
+        <span><a href="https://en.wikipedia.org/wiki/Spock" class="styled_link" target="_blank">Spock</a></span>
+    </footer>
 </body>
 </html>

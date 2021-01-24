@@ -137,6 +137,7 @@ class TestGame(unittest.TestCase):
         self.assertEqual(3, len(self.game.acceptable_answers))
 
     # This test should be skipped unless robot.choose() is fixed to "Rock"
+    @unittest.skip
     def test_robot_win(self):
         robot = Robot("computer", self.game.acceptable_answers)
         robot.choose()

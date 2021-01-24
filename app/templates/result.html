@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if result %}
-        <h1>{{ result.name }} wins this round!</h1>
-        <p>{{ player1.name }} chose {{ p1_choice }}</p>
-        <p>{{ player2.name }} chose {{p2_choice }}</p>
-    {% else %}
-        <h1>No winner this round!</h1>
-    <p>{{ player1.name }} chose {{ p1_choice }}</p>
-    <p>{{ player2.name }} chose {{p2_choice }}</p>
-    {% endif %}
-    <div class="result_button_container">
-        <form action="/new_round">
-            <input type="submit" value="Play Again">
-        </form>
-        <form action="/end">
-            <input type="submit" value="End Game">
-        </form>
+
+    <div class="player_form_container shrinkable_box">
+        {% if result %}
+            <h1 class="player_title">{{ result.name }} wins this round!</h1>
+            <div class="results_reveal">
+                <div class="player_title">{{ player1.name }} chose {{ p1_choice }}.</div>
+                <div class="player_title">{{ player2.name }} chose {{p2_choice }}.</div>
+            </div>
+        {% else %}
+            <h1 class="player_title">No winner this round!</h1>
+            <div class="results_reveal">
+                <div class="player_title">{{ player1.name }} chose {{ p1_choice }}.</div>
+                <div class="player_title">{{ player2.name }} chose {{p2_choice }}.</div>
+            </div>
+        {% endif %}
+        <div class="result_button_container">
+            <form action="/new_round">
+                <input type="submit" value="Play Again" class="custom_btn body_btn">
+            </form>
+            <form action="/end">
+                <input type="submit" value="End Game" class="custom_btn body_btn">
+            </form>
+        </div>
     </div>
 {% endblock %}

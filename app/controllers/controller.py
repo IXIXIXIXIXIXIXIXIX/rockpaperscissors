@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request, redirect
 from app.models.player import Player, Robot
 from app.models.game_assets import game, players, acceptable_answers, add_player 
+from app.models.robot_name_chooser import robot_name_chooser
 
 @app.route('/')
 def index():
@@ -10,6 +11,10 @@ def index():
 
 @app.route('/register_player')
 def register_player():
+
+	players.clear()
+	game.classic_game()
+
 	return render_template('register_player.html', player_one=True)
 
 @app.route('/register_player', methods=['POST'])
@@ -25,7 +30,7 @@ def create_player():
 
 	if len(players) < 2:
 		# create robot player
-		add_player(Robot("Computer", game.acceptable_answers))
+		add_player(Robot(robot_name_chooser(), game.acceptable_answers))
 
 	
 	extended = True if len(game.acceptable_answers) != 3 else False
